@@ -1,30 +1,41 @@
-        @media screen and (max-width: 768px) {
-            /* .wrapper {
+@keyframes slide {
+    from {
+        background-color: rgba(25, 25, 25, 1);
+    }
+    to {
+        background-color: rgba(25, 25, 25, 0);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* .wrapper {
         background-color: red;
     } */
-        }
-        
-        @media screen and (min-width: 769px) {
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            input {
-                display: none;
-            }
-            img {
-                width: 100%;
-            }
-            .wrapper {
-                width: 40%;
-                height: auto;
-                /* background-color: red; */
-                margin: 0.5rem auto;
-                display: grid;
-                grid-template-areas: "A A A A A" "B B . . C";
-            }
-            /* .slide1 {
+}
+
+@media screen and (min-width: 769px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    input {
+        display: none;
+    }
+    img {
+        position: relative;
+        z-index: -1;
+        width: 100%;
+    }
+    .wrapper {
+        width: 40%;
+        height: auto;
+        /* background-color: red; */
+        margin: 0.5rem auto;
+        display: grid;
+        grid-template-areas: "A A A A A" "B B . . C";
+    }
+    /* .slide1 {
                 background-position: bottom;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -48,46 +59,47 @@
                 background-size: contain;
                 background-image: url(./img/photo_2022-05-14_17-35-07.jpg);
             } */
-            label {
-                background-color: green;
-                border-radius: 100%;
-                cursor: pointer;
-                width: 1rem;
-                height: 1rem;
-            }
-            .slides {
-                display: none;
-            }
-            .slider {
-                width: 100%;
-                /* height: 41rem; */
-                grid-area: A;
-            }
-            .text-in-mem {
-                grid-area: B;
-            }
-            .controls {
-                grid-area: C;
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                justify-items: end;
-            }
-            #radio1:checked~.slider>.slide1,
-            #radio2:checked~.slider>.slide2,
-            #radio3:checked~.slider>.slide3,
-            #radio4:checked~.slider>.slide4 {
-                display: block;
-                width: 100%;
-                /* height: 40rem; */
-            }
-            .text {
-                display: none;
-            }
-            #radio1:checked~.text-in-mem>.text1,
-            #radio2:checked~.text-in-mem>.text2,
-            #radio3:checked~.text-in-mem>.text3,
-            #radio4:checked~.text-in-mem>.text4 {
-                display: block;
-                width: 100%;
-            }
-        }
+    label {
+        background: radial-gradient(black 30%, white 20%);
+        border-radius: 100%;
+        cursor: pointer;
+        width: 2rem;
+        height: 2rem;
+    }
+    .slides {
+        display: none;
+        position: relative;
+    }
+    .slider {
+        width: 100%;
+        /* height: 41rem; */
+        grid-area: A;
+    }
+    .text-in-mem {
+        grid-area: B;
+    }
+    .controls {
+        grid-area: C;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-items: end;
+    }
+    #radio1:checked~.slider>.slide1,
+    #radio2:checked~.slider>.slide2,
+    #radio3:checked~.slider>.slide3,
+    #radio4:checked~.slider>.slide4 {
+        display: block;
+        width: 100%;
+        animation: slide 3s;
+    }
+    .text {
+        display: none;
+    }
+    #radio1:checked~.text-in-mem>.text1,
+    #radio2:checked~.text-in-mem>.text2,
+    #radio3:checked~.text-in-mem>.text3,
+    #radio4:checked~.text-in-mem>.text4 {
+        display: block;
+        width: 100%;
+    }
+}
